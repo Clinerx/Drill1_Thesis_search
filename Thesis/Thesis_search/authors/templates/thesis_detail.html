@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Thesis Detail</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'detail_style.css' %}">
 </head>
 <body>
-    <h1 style="font-size: 3rem; "><b>Thesis Detail</b></h1>
-    <p style="font-size: 2rem; text-align: center;"><b>Title: {{ thesis.title }}</b></p>
-    <p style="font-size: 20px; text-align: center; ">Author: {{ thesis.author }}</p>
-    <p style="text-align: justify;">Abstract: {{ thesis.abstract }}</p>
-    <p style="text-align: right;"><b>Year: {{ thesis.year }}</b></p>
+    <h1>Thesis Detail</h1>
+    <p class="thesis-title">Title: {{ thesis.title }}</p>
+    <p class="author">Author: {{ thesis.author }}</p>
+    <p class="abstract">Abstract: {{ thesis.abstract }}</p>
+    <p class="year">Year: {{ thesis.year }}</p>
 
     <h2>Comments</h2>
     {% for comment in thesis.comments.all %}
@@ -25,8 +25,8 @@
     
     <form method="post" action="{% url 'add_comment_to_thesis' thesis.pk %}">
         {% csrf_token %}
-        <textarea name="comment_text"></textarea><br>
-        <button type="submit">Add Comment</button>
+        <textarea name="comment_text" class="comment-textarea"></textarea><br>
+        <button type="submit" class="comment-btn">Add Comment</button>
     </form>
  
     <div id="back-btn">
@@ -38,6 +38,7 @@
             window.history.back();
         }
     </script>
+
 
 </body>
 </html>

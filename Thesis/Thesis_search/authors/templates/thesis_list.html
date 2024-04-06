@@ -4,44 +4,46 @@
     <meta charset="UTF-8">
     <title>Thesis List</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style_2.css' %}">
 </head>
 <body>
-    <h1>Thesis List</h1>
-    
-    <div id="search-bar">
-        <form method="GET" action="{% url 'thesis_search' %}">
-            <input type="text" name="q" placeholder="Search...">
-            <button type="submit">Search</button>
-        </form>
-    </div>
-
-    {% for thesis in page_obj %}
-        <div id="content">
-            <p>Title: {{ thesis.title }}</p>
-            <p>Author: {{ thesis.author }}</p>
-            <p><a href="{% url 'thesis_detail' thesis.pk %}">View details</a></p>
+    <div class="container">
+        <h1>Thesis List</h1>
+        
+        <div id="search-bar">
+            <form method="GET" action="{% url 'thesis_search' %}">
+                <input type="text" name="q" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
         </div>
-    {% empty %}
-        <p>No theses found.</p>
-    {% endfor %}
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
+        {% for thesis in page_obj %}
+            <div class="content">
+                <p class="title">Title: {{ thesis.title }}</p>
+                <p class="author">Author: {{ thesis.author }}</p>
+                <p class="details"><a href="{% url 'thesis_detail' thesis.pk %}">View details</a></p>
+            </div>
+        {% empty %}
+            <p class="no-result">No theses found.</p>
+        {% endfor %}
 
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
             </span>
-
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+        </div>
     </div>
 </body>
 </html>

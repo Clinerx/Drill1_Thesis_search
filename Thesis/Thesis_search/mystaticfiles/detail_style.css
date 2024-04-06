@@ -1,0 +1,75 @@
+
+body{
+    max-width: 60%;
+    margin: auto;
+    font-family: 'Century Gothic', sans-serif;
+}
+/* Heading styles */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Thesis title styles */
+.thesis-title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Author styles */
+.author {
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Abstract styles */
+.abstract {
+    text-align: justify;
+}
+
+/* Year styles */
+.year {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Comment textarea styles */
+.comment-textarea {
+    width: 100%;
+    height: 100px; /* Adjust as needed */
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+/* Comment button styles */
+.comment-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.comment-btn:hover {
+    background-color: #45a049;
+}
+
+/* Back button styles */
+#back-btn {
+    padding: 10px;
+}
+
+.btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #005f6b;
+}

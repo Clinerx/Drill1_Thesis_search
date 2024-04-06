@@ -7,30 +7,35 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Thesis Search</h1>
-    <form method="GET" action="{% url 'thesis_search' %}">
-        <input type="text" name="q" placeholder="Search...">
-        <button type="submit">Search</button>
-    </form>
+    <div class="container">
+        <h1>Thesis Search</h1>
+        <div class="search-container">
+            <form method="GET" action="{% url 'thesis_search' %}">
+                <input type="text" name="q" placeholder="Search..." class="search-input">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </div>
 
-    {% if query %}
-        <h2>Search Results for "{{ query }}"</h2>
-        {% if results %}
-            <ul>
-                {% for thesis in results %}
-                    <li>
-                        <p>Title: {{ thesis.title }}</p>
-                        <p>Author: {{ thesis.author }}</p>
-                        <p><a href="{% url 'thesis_detail' thesis.pk %}">View details</a></p>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No results found for "{{ query }}".</p>
+        {% if query %}
+            <div class="search-results-container">
+                <h2>Search Results for "{{ query }}"</h2>
+                {% if results %}
+                    <ul class="search-results">
+                        {% for thesis in results %}
+                            <li class="result-item">
+                                <p class="title">Title: {{ thesis.title }}</p>
+                                <p class="author">Author: {{ thesis.author }}</p>
+                                <p class="details"><a href="{% url 'thesis_detail' thesis.pk %}">View details</a></p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-result">No results found for "{{ query }}".</p>
+                {% endif %}
+            </div>
         {% endif %}
-    {% endif %}
 
-    <p><a href="{% url 'thesis_list' %}">Back to Home Page</a></p>
-
+        <p><a href="{% url 'thesis_list' %}" class="back-link">Back to Home Page</a></p>
+    </div>
 </body>
 </html>

@@ -1,0 +1,93 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    max-width: 50%;
+    margin: auto;
+    color: #333;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Search bar styles */
+#search-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+}
+
+#search-bar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+/* Content styles */
+.content {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.content .title {
+    font-weight: bold;
+}
+
+.content .details a {
+    color: #281bdb;
+    text-decoration: none;
+}
+
+.content .details a:hover {
+    text-decoration: underline;
+}
+
+/* Pagination styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
